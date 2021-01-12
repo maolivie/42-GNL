@@ -6,12 +6,16 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 20:29:14 by molivier          #+#    #+#             */
-/*   Updated: 2020/12/17 18:34:46 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 19:38:44 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
 # include <stdlib.h>
 # include <sys/types.h>

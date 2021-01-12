@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 23:05:15 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/12 15:04:59 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 18:45:01 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -88,4 +88,30 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcpy(str, s1, len_s1 + len_s2 + 1);
 	ft_strlcpy(str + len_s1, s2, len_s2 + 1);
 	return (str);
+}
+
+char	*ft_strappend(char **s1, const char *s2)
+{
+	char	*str;
+
+	str = ft_strjoin(*s1, s2);
+	free(*s1);
+	*s1 = str;
+	return (str);
+}
+
+char	*ft_strreplace(char **s1, const char *s2)
+{
+	char	*str;
+
+	str = ft_strdup(s2);
+	free(*s1);
+	*s1 = str;
+	return (str);
+}
+
+void	ft_strdel(char **as)
+{
+	free(*as);
+	*as = NULL;
 }
