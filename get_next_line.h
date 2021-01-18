@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 20:29:14 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/17 01:06:15 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/18 19:31:03 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@
 
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup(const char *src);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strappend(char *s1, char const *s2);
+char	*ft_strappend(char *s1, const char *s2);
 
-int		handle_exceptions(ssize_t ret, char **line, char *buf, char *nl_ptr);
 int		get_next_line(int fd, char **line);
 
 #endif

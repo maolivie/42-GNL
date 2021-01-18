@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 23:05:15 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/17 00:40:13 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/18 19:19:27 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *src)
 {
 	char	*dst;
 	size_t	len;
 	size_t	i;
 
-	len = ft_strlen(s1);
+	len = ft_strlen(src);
 	dst = (char *)malloc(sizeof(char) * (len + 1));
 	if (dst == NULL)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (src[i])
 	{
-		dst[i] = s1[i];
+		dst[i] = src[i];
 		++i;
 	}
 	dst[i] = '\0';
@@ -74,7 +74,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
-char	*ft_strappend(char *s1, char const *s2)
+char	*ft_strappend(char *s1, const char *s2)
 {
 	char	*str;
 	size_t	len_s1;
