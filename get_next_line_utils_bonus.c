@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 23:05:15 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/12 18:45:01 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 15:45:25 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,80 +38,51 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *src)
 {
 	char	*dst;
 	size_t	len;
 	size_t	i;
 
-	len = ft_strlen(s1);
+	len = ft_strlen(src);
 	dst = (char *)malloc(sizeof(char) * (len + 1));
 	if (dst == NULL)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (src[i])
 	{
-		dst[i] = s1[i];
+		dst[i] = src[i];
 		++i;
 	}
 	dst[i] = '\0';
 	return (dst);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_strappend(char *s1, const char *s2)
 {
+	char	*str;
+	size_t	len;
 	size_t	i;
+	size_t	j;
 
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	i = 0;
-	while (src[i] && i < dstsize - 1)
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str)
 	{
-		dst[i] = src[i];
-		++i;
+		i = 0;
+		while (s1[i])
+		{
+			str[i] = s1[i];
+			++i;
+		}
+		j = 0;
+		while (s2[j])
+		{
+			str[i + j] = s2[j];
+			++j;
+		}
+		str[len] = '\0';
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*str;
-	size_t	len_s1;
-	size_t	len_s2;
-
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (str == NULL)
-		return (NULL);
-	ft_strlcpy(str, s1, len_s1 + len_s2 + 1);
-	ft_strlcpy(str + len_s1, s2, len_s2 + 1);
+	free(s1);
 	return (str);
-}
-
-char	*ft_strappend(char **s1, const char *s2)
-{
-	char	*str;
-
-	str = ft_strjoin(*s1, s2);
-	free(*s1);
-	*s1 = str;
-	return (str);
-}
-
-char	*ft_strreplace(char **s1, const char *s2)
-{
-	char	*str;
-
-	str = ft_strdup(s2);
-	free(*s1);
-	*s1 = str;
-	return (str);
-}
-
-void	ft_strdel(char **as)
-{
-	free(*as);
-	*as = NULL;
 }
