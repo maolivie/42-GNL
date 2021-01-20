@@ -6,13 +6,13 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 20:27:34 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/17 01:03:51 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 14:44:03 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	handle_exceptions(ssize_t ret, char **line, char *buf, char *nl_ptr)
+int	handle_exceptions(ssize_t ret, char *nl_ptr, char **line, char *buf)
 {
 	if (nl_ptr)
 		ft_strlcpy(buf, nl_ptr + 1, BUFFER_SIZE + 1);
@@ -49,5 +49,5 @@ int	get_next_line(int fd, char **line)
 		if ((*line = ft_strappend(*line, buf)) == NULL)
 			return (-1);
 	}
-	return (handle_exceptions(ret, line, buf, nl_ptr));
+	return (handle_exceptions(ret, nl_ptr, line, buf));
 }
