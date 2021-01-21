@@ -6,10 +6,11 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 20:27:34 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/20 14:44:03 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 15:56:01 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "get_next_line.h"
 
 int	handle_exceptions(ssize_t ret, char *nl_ptr, char **line, char *buf)
