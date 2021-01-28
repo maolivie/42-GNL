@@ -6,10 +6,11 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:45:53 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/21 15:27:10 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 16:04:51 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "get_next_line_bonus.h"
 
 t_list	*get_node(t_list **alst, int fd)

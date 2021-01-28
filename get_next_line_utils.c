@@ -6,11 +6,10 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 23:05:15 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/21 15:56:04 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 16:07:51 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/_types/_size_t.h>
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)

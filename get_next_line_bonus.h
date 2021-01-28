@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 18:47:32 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/20 15:40:13 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/21 16:02:30 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # endif
 
 # include <stdlib.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
 
 typedef struct	s_list
 {
@@ -29,7 +26,6 @@ typedef struct	s_list
 	int				fd;
 }				t_list;
 
-size_t			ft_strlen(const char *s);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *src);
 char			*ft_strappend(char *s1, const char *s2);
