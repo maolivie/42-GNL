@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 23:05:15 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/20 15:45:25 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/28 15:27:00 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,25 @@ char	*ft_strappend(char *s1, const char *s2)
 	}
 	free(s1);
 	return (str);
+}
+
+void	ft_lstdelone(t_list **alst, t_list *node)
+{
+	t_list	*lst;
+	t_list	*prev;
+
+	if (*alst == NULL || node == NULL)
+		return ;
+	lst = *alst;
+	while (lst != node)
+	{
+		prev = lst;
+		lst = lst->next;
+	}
+	if (lst == *alst)
+		*alst = lst->next;
+	else
+		prev->next = lst->next;
+	free(lst->save);
+	free(lst);
 }

@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 18:47:32 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/21 16:02:30 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/01/28 17:37:26 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_list
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *src);
 char			*ft_strappend(char *s1, const char *s2);
+void			ft_lstdelone(t_list **alst, t_list *node);
 
 int				get_next_line(int fd, char **line);
 
