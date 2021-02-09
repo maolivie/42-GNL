@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 23:05:15 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/28 15:27:00 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 15:03:42 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ void	ft_lstdelone(t_list **alst, t_list *node)
 		*alst = lst->next;
 	else
 		prev->next = lst->next;
-	free(lst->save);
+	free(lst->data);
 	free(lst);
 }

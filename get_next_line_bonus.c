@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 12:24:18 by molivier          #+#    #+#             */
-/*   Updated: 2021/02/07 14:52:59 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 15:05:25 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ t_list	*get_node(t_list **alst, int fd)
 		node = (t_list *)malloc(sizeof(t_list));
 		if (node == NULL)
 			return (NULL);
-		node->save = ft_strdup("");
-		if (node->save == NULL)
+		node->data = ft_strdup("");
+		if (node->data == NULL)
 		{
 			free(node);
 			return (NULL);
@@ -57,14 +57,14 @@ ssize_t	read_file(t_list *node, int fd)
 	ssize_t	ret;
 
 	ret = 1;
-	while (ft_strchr(node->save, '\n') == NULL)
+	while (ft_strchr(node->data, '\n') == NULL)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret == 0 || ret == -1)
 			break ;
 		buf[ret] = '\0';
-		node->save = ft_strappend(node->save, buf);
-		if (node->save == NULL)
+		node->data = ft_strappend(node->data, buf);
+		if (node->data == NULL)
 			return (-1);
 	}
 	return (ret);
@@ -75,24 +75,24 @@ ssize_t	split_content(char **line, t_list *node)
 	char	*nl;
 	char	*save;
 
-	nl = ft_strchr(node->save, '\n');
+	nl = ft_strchr(node->data, '\n');
 	if (nl)
 	{
 		save = ft_strdup(nl + 1);
 		if (save == NULL)
 			return (-1);
 		*nl = '\0';
-		*line = ft_strdup(node->save);
-		free(node->save);
-		node->save = save;
+		*line = ft_strdup(node->data);
+		free(node->data);
+		node->data = save;
 		if (*line == NULL)
 			return (-1);
 		return (1);
 	}
 	else
 	{
-		*line = node->save;
-		node->save = NULL;
+		*line = node->data;
+		node->data = NULL;
 		return (0);
 	}
 }

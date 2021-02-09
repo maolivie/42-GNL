@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 18:47:32 by molivier          #+#    #+#             */
-/*   Updated: 2021/01/28 17:37:26 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 15:03:49 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct	s_list
 {
 	struct s_list	*next;
-	char			*save;
+	char			*data;
 	int				fd;
 }				t_list;
 
