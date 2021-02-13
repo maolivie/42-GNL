@@ -6,7 +6,7 @@
 /*   By: molivier <molivier@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 12:24:18 by molivier          #+#    #+#             */
-/*   Updated: 2021/02/09 15:05:25 by molivier         ###   ########lyon.fr   */
+/*   Updated: 2021/02/13 11:36:14 by molivier         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,21 @@ t_list	*get_node(t_list **alst, int fd)
 	while (node)
 	{
 		if (node->fd == fd)
-			break ;
+			return (node);
 		node = node->next;
 	}
+	node = (t_list *)malloc(sizeof(t_list));
 	if (node == NULL)
+		return (NULL);
+	node->data = ft_strdup("");
+	if (node->data == NULL)
 	{
-		node = (t_list *)malloc(sizeof(t_list));
-		if (node == NULL)
-			return (NULL);
-		node->data = ft_strdup("");
-		if (node->data == NULL)
-		{
-			free(node);
-			return (NULL);
-		}
-		node->fd = fd;
-		node->next = *alst;
-		*alst = node;
+		free(node);
+		return (NULL);
 	}
+	node->fd = fd;
+	node->next = *alst;
+	*alst = node;
 	return (node);
 }
 
